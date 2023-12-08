@@ -15,3 +15,8 @@ WHERE location = "St. Louis City";
 DROP TABLE job;
 
 --Part 4
+SELECT skill_name
+FROM skill
+INNER JOIN jobs_skill ON skills.skill_id = jobs_skills.skill_id
+WHERE//WRITE THE CONDITION!!!!!!!!!!!!!!!!!!!!!!
+ORDER BY skill_name;

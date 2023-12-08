@@ -69,6 +69,7 @@ public class HomeController {
             newJob.setEmployer(new Employer());
 
         }
+//we need .SAVE CODE HERE FOR THE FORM!!! UGHHH
 
         return "redirect:";
     }
