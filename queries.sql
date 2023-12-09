@@ -17,6 +17,6 @@ DROP TABLE job;
 --Part 4
 SELECT skill_name
 FROM skill
-INNER JOIN jobs_skill ON skills.skill_id = jobs_skills.skill_id
-WHERE//WRITE THE CONDITION!!!!!!!!!!!!!!!!!!!!!!
+INNER JOIN jobs_skill ON skill.skill_id = jobs_skill.skill_id
+WHERE jobs_skill.job_id IS NOT NULL
 ORDER BY skill_name;

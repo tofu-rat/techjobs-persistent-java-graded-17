@@ -6,6 +6,7 @@ import org.launchcode.techjobs.persistent.models.Job;
 import org.launchcode.techjobs.persistent.models.Skill;
 import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
 import org.launchcode.techjobs.persistent.models.data.SkillRepository;
+import org.launchcode.techjobs.persistent.models.data.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,9 @@ public class HomeController {
     @Autowired
     private SkillRepository skillRepository;
 
+    @Autowired
+    private JobRepository jobRepository;
+
     @GetMapping("add")
     public String displayAddJobForm(Model model) {
 	model.addAttribute("title", "Add Job");
@@ -64,13 +68,10 @@ public class HomeController {
             List<Skill> skillsObjects = (List<Skill>) skillRepository.findAllById(skills);
             newJob.setSkills(skillsObjects);
 
-
         } else {
             newJob.setEmployer(new Employer());
-
         }
-//we need .SAVE CODE HERE FOR THE FORM!!! UGHHH
-
+        jobRepository.save(newJob);
         return "redirect:";
     }
 
