@@ -15,8 +15,8 @@ WHERE location = "St. Louis City";
 DROP TABLE job;
 
 --Part 4
-SELECT skill_name
+SELECT *
 FROM skill
-INNER JOIN jobs_skill ON skill.skill_id = jobs_skill.skill_id
-WHERE jobs_skill.job_id IS NOT NULL
-ORDER BY skill_name;
+LEFT JOIN job_skills ON skill.id = job_skills.skills_id
+WHERE job_skills.jobs_id IS NOT NULL
+ORDER BY name ASC;
