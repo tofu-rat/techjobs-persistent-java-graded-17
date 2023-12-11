@@ -88,7 +88,7 @@ public class HomeController {
             return "view";
         } else {
 
-            return "redirect:";
+            return "redirect:../";
         }
     }
 
