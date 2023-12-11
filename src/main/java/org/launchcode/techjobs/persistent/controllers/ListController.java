@@ -60,7 +60,7 @@ public class ListController {
         Iterable<Job> jobs;
         if (column.toLowerCase().equals("all")){
             jobs = jobRepository.findAll();
-            model.addAttribute("title", "All Jobs" + columnChoices.get(column) + ": " + value);
+            model.addAttribute("title", "All Jobs" + ": " + value);
 
         } else {
             jobs = JobData.findByColumnAndValue(column, value, jobRepository.findAll());
