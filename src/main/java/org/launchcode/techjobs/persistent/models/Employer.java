@@ -15,15 +15,18 @@ public class Employer extends AbstractEntity {
     @Size(max=100,min=2,message="Location must be between 2 and 100 characters.")
     private String location;
 
+    @OneToMany
+@JoinColumn(name = "employer_id")
+    private List<Job> jobs = new ArrayList<>();
+
     public List<Job> getJobs() {
         return jobs;
     }
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 
-    @OneToMany
-@JoinColumn(name = "employer_id")
-    private final List<Job> jobs = new ArrayList<>();
-
-    public Employer() {}
+   public Employer() {}
 
     public Employer(String location) {
         this.location = location;
@@ -36,4 +39,6 @@ public class Employer extends AbstractEntity {
     public void setLocation(String location) {
         this.location = location;
     }
+
+
 }
