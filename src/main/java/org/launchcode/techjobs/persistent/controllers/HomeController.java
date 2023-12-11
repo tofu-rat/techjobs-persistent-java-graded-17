@@ -27,6 +27,8 @@ public class HomeController {
     public String index(Model model) {
 
         model.addAttribute("title", "MyJobs");
+        Iterable<Job> allJobs = jobRepository.findAll();
+        model.addAttribute("jobs", allJobs);
 
         return "index";
     }
